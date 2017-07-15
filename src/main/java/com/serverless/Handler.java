@@ -1,21 +1,18 @@
 package com.serverless;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.amazon.speech.speechlet.Speechlet;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.serverless.model.ApiGatewayResponse;
 import com.serverless.model.Request;
 import com.serverless.model.Response;
 import org.apache.log4j.Logger;
-
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
 import twitter4j.Status;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Handler implements RequestHandler<Request, ApiGatewayResponse> {
 
