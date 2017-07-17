@@ -1,3 +1,5 @@
+.idea/compiler.xml
+.idea/workspace.xml
 *.class
 .gradle
 /build/
@@ -14,3 +16,4 @@ target
 
 # Serverless directories
 .serverless
+src/test/resources/

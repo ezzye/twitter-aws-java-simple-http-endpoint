@@ -23,17 +23,9 @@ public class TwitterFeedServlet extends HttpServlet {
     }
 
     private static final Logger log = LoggerFactory.getLogger(TwitterFeedServlet.class);
-
     private TwitterFeed twitterFeed;
     private transient ServletTwitterFeedRequestHandler servletTwitterFeedRequestHandler;
     private ObjectMapper mapper;
-
-
-
-    private static final String LSTRING_FILE =
-            "javax.servlet.http.LocalStrings";
-    private static ResourceBundle lStrings =
-            ResourceBundle.getBundle(LSTRING_FILE);
 
     public void setServlet(TwitterFeed twitterFeed) {
         this.twitterFeed = twitterFeed;
@@ -42,13 +34,6 @@ public class TwitterFeedServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String protocol = req.getProtocol();
-        String msg = lStrings.getString("http.method_get_not_supported");
-        if (protocol.endsWith("1.1")) {
-            resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, msg);
-        } else {
-            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, msg);
-        }
         byte[] outputBytes = null;
         outputBytes  = servletTwitterFeedRequestHandler.handleServletCall(twitterFeed,mapper);
         resp.setContentType("application/json");

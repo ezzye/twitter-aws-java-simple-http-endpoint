@@ -19,7 +19,7 @@ public class ServletTwitterFeedRequestHandler {
 
         Request request = new Request();
         request.setName("FreeHackney");
-        List<Status> tweets = twitterFeed.readFeed(request);
+        List<Status> tweets = twitterFeed.readFeed(request,twitterFeed.getTwitter());
         byte[] tweetsBytes = null;
         String tweetsStrings = "";
         try {

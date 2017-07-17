@@ -129,7 +129,7 @@
                       <systemProperties>
                           <systemProperty>
                               <key>javax.net.ssl.keyStore</key>
-                              <value>/Users/ellioe03/.ssl/java-keystore.jks</value>
+                              <value>/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keystore.jks</value>
                           </systemProperty>
                           <systemProperty>
                               <key>javax.net.ssl.keyStorePassword</key>

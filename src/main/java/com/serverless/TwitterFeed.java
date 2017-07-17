@@ -70,7 +70,7 @@ public class TwitterFeed {
         twitterConfig.setOAuthConsumerKey(creds.getConsumerKey());
         twitterConfig.setOAuthConsumerSecret(creds.getConsumerSecret());
         twitterConfig.setOAuthAccessToken(creds.getAccessToken());
-        twitterConfig.setOAuthAccessTokenSecret(creds.getAccessSecret());
+        twitterConfig.setOAuthAccessTokenSecret(creds.getAccessSecret()).setHttpConnectionTimeout(10000);
         twitterConfig.setJSONStoreEnabled(true);
         return new TwitterFactory(twitterConfig.build()).getInstance();
     }
