@@ -127,41 +127,60 @@
                   <configuration>
                       <mainClass>Launcher</mainClass>
                       <systemProperties>
+                          <!--<systemProperty>-->
+                              <!--<key>javax.net.ssl.keyStore</key>-->
+                              <!--<value>/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keystore.jks</value>-->
+                          <!--</systemProperty>-->
+                          <!--<systemProperty>-->
+                              <!--<key>javax.net.ssl.keyStorePassword</key>-->
+                              <!--<value>Aelliott1963</value>-->
+                          <!--</systemProperty>-->
                           <systemProperty>
-                              <key>javax.net.ssl.keyStore</key>
-                              <value>/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keystore.jks</value>
+                              <key>maven.wagon.http.ssl.insecure</key>
+                              <value>true</value>
                           </systemProperty>
                           <systemProperty>
-                              <key>javax.net.ssl.keyStorePassword</key>
-                              <value>Aelliott1963</value>
+                              <key>maven.wagon.http.ssl.allowall</key>
+                              <value>true</value>
                           </systemProperty>
                       </systemProperties>
+                      <!--<arguments>-->
+                          <!--<argument>-Djavax.ssl.net.keyStore=/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keystore.jks</argument>-->
+                          <!--<argument>-Djavax.net.ssl.keyStorePassword=Aelliott1963</argument>-->
+                      <!--</arguments>-->
                   </configuration>
               </plugin>
           </plugins>
       </pluginManagement>
-    <!--<plugins>-->
-      <!--<plugin>-->
-        <!--<groupId>org.apache.maven.plugins</groupId>-->
-        <!--<artifactId>maven-shade-plugin</artifactId>-->
-        <!--<version>2.3</version>-->
-        <!--<configuration>-->
-          <!--<createDependencyReducedPom>false</createDependencyReducedPom>-->
-        <!--</configuration>-->
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<phase>package</phase>-->
-            <!--<goals>-->
-              <!--<goal>shade</goal>-->
-            <!--</goals>-->
-            <!--<configuration>-->
-              <!--&lt;!&ndash; remove version from package name &ndash;&gt;-->
-              <!--<finalName>${project.artifactId}</finalName>-->
-            <!--</configuration>-->
-          <!--</execution>-->
-        <!--</executions>-->
-      <!--</plugin>-->
-    <!--</plugins>-->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <createDependencyReducedPom>false</createDependencyReducedPom>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+                <transformers>
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                        <mainClass>Launcher</mainClass>
+                    </transformer>
+                </transformers>
+                <shadedArtifactAttached>true</shadedArtifactAttached>
+              <!-- remove version from package name -->
+              <finalName>${project.artifactId}</finalName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 
 </project>

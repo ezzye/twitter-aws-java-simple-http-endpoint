@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+cd "$(dirname "$0")"
+export SERVER_ENV="component-test"
+bundle exec cucumber "$@"
+bundle exec rubocop Gemfile features
+

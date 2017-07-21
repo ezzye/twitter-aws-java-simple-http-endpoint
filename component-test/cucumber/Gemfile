@@ -1,0 +1,20 @@
+source 'https://gems.cloud.bbc.co.uk' do
+  gem 'aws-helper-v2'
+  gem 'ispy'
+  gem 'mod_av_cucumber'
+  gem 'modav_mir'
+  gem 'pips-domain'
+end
+
+source 'https://rubygems.org' do
+  gem 'awesome_print'
+  gem 'aws-sdk'
+  gem 'process-helper'
+  gem 'rest-client'
+  gem 'rubocop', '~> 0.48.1', require: false
+  gem 'keystores'
+
+  group :local do
+    gem 'pry'
+  end
+end

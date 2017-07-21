@@ -59,15 +59,20 @@ public final class Launcher {
         // Configure logging to output to the console with default level of INFO
         PropertyConfigurator.configure(Thread.currentThread().getContextClassLoader().getResource("log4j.properties"));
 
-        System.setProperty("javax.net.ssl.keyStore","/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keyStore.jks");
+        System.setProperty("javax.net.ssl.keyStore","/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keystore.jks");
         System.setProperty("javax.net.ssl.keyStorePassword","Aelliott1963");
 
         // Configure server and its associated servlets
         Server server = new Server();
         SslConnectionFactory sslConnectionFactory = new SslConnectionFactory();
         SslContextFactory sslContextFactory = sslConnectionFactory.getSslContextFactory();
-        sslContextFactory.setKeyStorePath(System.getProperty("javax.net.ssl.keyStore"));
-        sslContextFactory.setKeyStorePassword(System.getProperty("javax.net.ssl.keyStorePassword"));
+        final String keyStorePath = System.getProperty("javax.net.ssl.keyStore");
+        final String keyStorePassword = System.getProperty("javax.net.ssl.keyStorePassword");
+        System.out.println("KEYSTOREPATH "+keyStorePath);
+        System.out.println("KEYSTOREPASSWORD "+keyStorePassword);
+//        System.setProperty("javax.net.ssl.trustStoreType","JCEKS");
+        sslContextFactory.setKeyStorePath(keyStorePath);
+        sslContextFactory.setKeyStorePassword(keyStorePassword);
 
         HttpConfiguration httpConf = new HttpConfiguration();
         httpConf.setSecurePort(PORT);
