@@ -54,6 +54,7 @@ public class TwitterFeed {
     Twitter getTwitter() {
 
         TwitterCredentials creds = readCredentials();
+        System.out.println("creds "+ creds);
         if(creds.getConsumerKey() == null) {
             throw new RuntimeException("Incorrect Twitter client configuration: Consumer key is null");
         }
@@ -70,7 +71,7 @@ public class TwitterFeed {
         twitterConfig.setOAuthConsumerKey(creds.getConsumerKey());
         twitterConfig.setOAuthConsumerSecret(creds.getConsumerSecret());
         twitterConfig.setOAuthAccessToken(creds.getAccessToken());
-        twitterConfig.setOAuthAccessTokenSecret(creds.getAccessSecret());
+        twitterConfig.setOAuthAccessTokenSecret(creds.getAccessSecret()).setHttpConnectionTimeout(100000);
         twitterConfig.setJSONStoreEnabled(true);
         return new TwitterFactory(twitterConfig.build()).getInstance();
     }

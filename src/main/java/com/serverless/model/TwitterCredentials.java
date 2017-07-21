@@ -62,4 +62,14 @@ public class TwitterCredentials {
     public void setAccessSecret(String accessSecret) {
         this.accessSecret = accessSecret;
     }
+
+    @Override
+    public String toString() {
+        return "TwitterCredentials{" +
+                "consumerKey='" + consumerKey + '\'' +
+                ", consumerSecret='" + consumerSecret + '\'' +
+                ", accessToken='" + accessToken + '\'' +
+                ", accessSecret='" + accessSecret + '\'' +
+                '}';
+    }
 }
