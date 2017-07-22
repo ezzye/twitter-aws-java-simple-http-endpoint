@@ -45,6 +45,4 @@ public class TwitterFeedServlet extends HttpServlet {
 
     }
 
-
-
 }

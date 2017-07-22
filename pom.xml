@@ -119,7 +119,6 @@
                       <target>1.8</target>
                   </configuration>
               </plugin>
-
               <plugin>
                   <groupId>org.codehaus.mojo</groupId>
                   <artifactId>exec-maven-plugin</artifactId>
@@ -127,14 +126,14 @@
                   <configuration>
                       <mainClass>Launcher</mainClass>
                       <systemProperties>
-                          <!--<systemProperty>-->
-                              <!--<key>javax.net.ssl.keyStore</key>-->
-                              <!--<value>/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keystore.jks</value>-->
-                          <!--</systemProperty>-->
-                          <!--<systemProperty>-->
-                              <!--<key>javax.net.ssl.keyStorePassword</key>-->
-                              <!--<value>Aelliott1963</value>-->
-                          <!--</systemProperty>-->
+                          <systemProperty>
+                              <key>javax.net.ssl.keyStore</key>
+                              <value>/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keystore.jks</value>
+                          </systemProperty>
+                          <systemProperty>
+                              <key>javax.net.ssl.keyStorePassword</key>
+                              <value>Aelliott1963</value>
+                          </systemProperty>
                           <systemProperty>
                               <key>maven.wagon.http.ssl.insecure</key>
                               <value>true</value>
@@ -144,10 +143,6 @@
                               <value>true</value>
                           </systemProperty>
                       </systemProperties>
-                      <!--<arguments>-->
-                          <!--<argument>-Djavax.ssl.net.keyStore=/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home/jre/lib/security/keystore.jks</argument>-->
-                          <!--<argument>-Djavax.net.ssl.keyStorePassword=Aelliott1963</argument>-->
-                      <!--</arguments>-->
                   </configuration>
               </plugin>
           </plugins>
