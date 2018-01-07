@@ -30,3 +30,10 @@ target
 # Serverless directories
 .serverless
 src/test/resources/
+.idea/.name
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/libraries/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
